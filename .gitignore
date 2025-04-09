@@ -1,3 +1,6 @@
+# Fichiers spécifiques à IntelliJ IDEA
+.idea/
+*.iml
 
 # Fichiers spécifiques à VS Code
 .vscode/
