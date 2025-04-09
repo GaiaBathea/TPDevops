@@ -1,0 +1,22 @@
+body{
+    font-family: times,sans-serif;
+    text-align: center;
+    background-color: rgb(8, 88, 75);
+
+}
+form{
+    margin-bottom: 20px;
+}
+
+#weatherinfo{
+
+    border:1px solid #ffffff;
+    padding: 20px;
+    margin: 0 auto;
+    width: 300px;
+
+}
+h1{
+    color: rgb(170, 204, 209);
+    
+}
