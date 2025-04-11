@@ -1,13 +1,26 @@
-function clickbutton(event){
+function clickbutton(event) {
     event.preventDefault();
-    //console.log("Hello World !!!");
 
+    const city = document.getElementById("cityinput").value.trim();
     const mydiv = document.getElementById("weatherinfo");
-    //mydiv.innerHTML = "Hello World !!!";
-    const myvalue = document.getElementById("cityinput").value;
- //   mydiv.innerHTML = myvalue;
-    getWeather(myvalue);
 
+    if (!city) {
+        mydiv.innerHTML = "<p style='color:white;'>Veuillez entrer une ville.</p>";
+        return;
+    }
+
+    // Appel API météo
+    getWeather(city);
+
+    // Enregistrement dans les favoris
+    fetch('http://localhost:3000/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ city })
+    })
+    .then(res => res.json())
+    .then(data => console.log("Favoris :", data.message))
+    .catch(err => console.error("Erreur ajout favoris:", err));
 }
 
 document.getElementById("cityform").addEventListener("submit",event => clickbutton(event));
